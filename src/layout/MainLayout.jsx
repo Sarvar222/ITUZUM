@@ -1,16 +1,15 @@
-import { Outlet } from "react-router-dom";
-
+import { Outlet } from "react-router";
+import { Footer, Navbar, ColorContainer } from "../components";
 function MainLayout() {
   return (
     <>
-      <Link to="/">Home</Link>
-      <Link to="/">About</Link>
-      <main>
+      <Navbar />
+      <ColorContainer />
+      <main className="align-elements">
         <Outlet />
       </main>
-      ;
+      <Footer />
     </>
   );
 }
-
 export default MainLayout;

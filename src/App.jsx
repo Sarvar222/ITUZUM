@@ -1,8 +1,18 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router";
+// layouts
 import MainLayout from "./layout/MainLayout";
-import Home from "./pages/Home";
-import About from "./pages/About";
-
+//pages
+import {
+  About,
+  Cart,
+  Home,
+  Contact,
+  Login,
+  Register,
+  SingleProduct,
+} from "./pages";
+import { loader as HomeLoader } from "./pages/Home";
+import { loader as SingleProductLoader } from "./pages/SingleProduct";
 function App() {
   const routes = createBrowserRouter([
     {
@@ -12,15 +22,36 @@ function App() {
         {
           index: true,
           element: <Home />,
+          loader: HomeLoader,
         },
         {
-          path: "/About",
+          path: "/about",
           element: <About />,
+        },
+        {
+          path: "/contact",
+          element: <Contact />,
+        },
+        {
+          path: "/cart",
+          element: <Cart />,
+        },
+        {
+          path: "/login",
+          element: <Login />,
+        },
+        {
+          path: "/register",
+          element: <Register />,
+        },
+        {
+          path: "/singleproduct/:id",
+          element: <SingleProduct />,
+          loader: SingleProductLoader,
         },
       ],
     },
   ]);
   return <RouterProvider router={routes} />;
 }
-
 export default App;
